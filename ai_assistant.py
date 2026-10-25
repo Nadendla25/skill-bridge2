@@ -6,25 +6,45 @@ from flask_cors import CORS
 from google import genai
 
 app = Flask(__name__)
-CORS(app)
 
-# Get the API key from the environment variable
-api_key = os.getenv("GEMINI_API_KEY")
+# Allow requests from the deployed frontend.
+# Set FRONTEND_URL in Render to your live website URL.
+frontend_url = os.getenv("FRONTEND_URL", "").strip()
 
-if not api_key:
-    raise RuntimeError(
-        "GEMINI_API_KEY is missing. Set it in the terminal "
-        "before starting this service."
-    )
+if frontend_url:
+    CORS(app, resources={
+        r"/api/ai/*": {"origins": [frontend_url]}
+    })
+else:
+    # Temporary fallback; configure FRONTEND_URL in Render.
+    CORS(app, resources={
+        r"/api/ai/*": {"origins": "*"}
+    })
 
-client = genai.Client(api_key=api_key)
+MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+
+
+def get_gemini_client():
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        return None
+    return genai.Client(api_key=api_key)
+
+
+@app.get("/")
+def home():
+    return jsonify({
+        "status": "success",
+        "message": "SkillBridge AI backend is running"
+    })
 
 
 @app.get("/api/ai/health")
 def health():
     return jsonify({
         "status": "success",
-        "message": "SkillBridge AI service is running"
+        "message": "SkillBridge AI service is running",
+        "api_key_configured": bool(os.getenv("GEMINI_API_KEY"))
     })
 
 
@@ -38,48 +58,57 @@ def chat():
             "error": "Please enter a question."
         }), 400
 
+    if len(question) > 10000:
+        return jsonify({
+            "error": "Please keep your question under 10,000 characters."
+        }), 400
+
     try:
+        client = get_gemini_client()
+
+        if client is None:
+            app.logger.error("GEMINI_API_KEY is not configured.")
+            return jsonify({
+                "error": "AI service is not configured yet. Please try again later."
+            }), 503
+
         response = client.models.generate_content(
-            model="gemini-3.8-flash",
+            model=MODEL_NAME,
             contents=question.strip()
         )
 
         answer = getattr(response, "text", None)
 
-        if not answer:
+        if not answer or not answer.strip():
             return jsonify({
-                "error": "Gemini returned an empty answer. Try another question."
+                "error": "The AI returned an empty response. Please try again."
             }), 502
 
-        return jsonify({"answer": answer})
+        return jsonify({
+            "answer": answer.strip()
+        }), 200
 
-    except Exception as e:
-        # Print the real cause in the VS Code server terminal
-        app.logger.exception("Gemini request failed: %s", e)
-        print("GEMINI ERROR:", repr(e), flush=True)
+    except Exception as exc:
+        app.logger.exception("Gemini request failed")
 
-        # Return a readable error without exposing sensitive details
-        error_text = str(e).lower()
+        error_text = str(exc).lower()
 
-        if "api key" in error_text or "unauthenticated" in error_text:
-            message = "Gemini API key is invalid or not accepted."
-        elif "quota" in error_text or "resource_exhausted" in error_text:
-            message = "Gemini API quota exceeded. Check API usage and limits."
+        if "api key" in error_text or "unauthenticated" in error_text or "permission_denied" in error_text:
+            message = "Gemini API key is invalid or does not have permission."
+        elif "quota" in error_text or "resource_exhausted" in error_text or "429" in error_text:
+            message = "Gemini API quota or rate limit reached. Please try again later."
         elif "not found" in error_text or "404" in error_text:
-            message = "Gemini model or API endpoint was not found."
+            message = "The configured Gemini model was not found. Check GEMINI_MODEL."
         else:
-            message = (
-                "Gemini request failed. Check the VS Code server terminal "
-                "for the exact error."
-            )
+            message = "The AI request failed. Please try again later."
 
         return jsonify({"error": message}), 502
 
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", "5001"))
     app.run(
-        host="127.0.0.1",
-        port=5001,
+        host="0.0.0.0",
+        port=port,
         debug=False
     )
-
