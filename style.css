@@ -2,6 +2,9 @@
 /* =========================
    SKILLBRIDGE HOMEPAGE
    ========================= */
+body {
+    background: red !important;
+}
 
 :root {
     --background: #080d19;
