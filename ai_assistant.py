@@ -103,12 +103,15 @@ def chat():
             message = "The AI request failed. Please try again later."
 
         return jsonify({"error": message}), 502
-
-
+        
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "5001"))
+    port = int(os.environ.get("PORT", 5001))
     app.run(
         host="0.0.0.0",
         port=port,
         debug=False
     )
+
+
+
+
