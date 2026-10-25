@@ -1,24 +1,27 @@
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your SkillBridge learning progress, quiz results, and study activity.">
     <title>My Dashboard | SkillBridge</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
 
     <aside class="sidebar">
-        <a href="content.html" class="brand">Skill<span>Bridge</span></a>
+        <a href="./content.html" class="brand">Skill<span>Bridge</span></a>
 
         <p class="menu-label">LEARNING SPACE</p>
 
         <nav class="menu">
-            <a href="dashboard.html" class="menu-link active">▦ &nbsp; Dashboard</a>
-            <a href="content.html" class="menu-link">📚 &nbsp; Learn</a>
-            <a href="practice.html" class="menu-link">💻 &nbsp; Practice</a>
-            <a href="interview.html" class="menu-link">🎯 &nbsp; Practice & Improve</a>
+            <a href="./dashboard.html" class="menu-link active">▦ &nbsp; Dashboard</a>
+            <a href="./content.html" class="menu-link">📚 &nbsp; Learn</a>
+            <a href="./practice.html" class="menu-link">💻 &nbsp; Practice</a>
+            <a href="./interview.html" class="menu-link">🎯 &nbsp; Practice &amp; Improve</a>
         </nav>
 
         <div class="sidebar-bottom">
@@ -27,7 +30,10 @@
                 <strong>Keep learning!</strong>
                 <p>Small steps lead to big results.</p>
             </div>
-            <button id="logoutButton" class="logout-button">↪ &nbsp; Logout</button>
+
+            <button id="logoutButton" class="logout-button" type="button">
+                ↪ &nbsp; Logout
+            </button>
         </div>
     </aside>
 
@@ -51,9 +57,15 @@
             <div>
                 <span class="eyebrow">YOUR LEARNING JOURNEY</span>
                 <h2>Welcome back, <span id="welcomeName">Student</span>! 👋</h2>
-                <p>Track your progress, review your quiz results, and keep building your skills.</p>
+                <p>
+                    Track your progress, review your quiz results,
+                    and keep building your skills.
+                </p>
             </div>
-            <a href="content.html" class="primary-button">Continue Learning →</a>
+
+            <a href="./content.html" class="primary-button">
+                Continue Learning →
+            </a>
         </section>
 
         <section class="stats-grid" aria-label="Learning statistics">
@@ -96,7 +108,9 @@
                 </div>
 
                 <div id="progressList" class="progress-list">
-                    <p class="loading-message">Loading your learning progress...</p>
+                    <p class="loading-message">
+                        Loading your learning progress...
+                    </p>
                 </div>
             </article>
 
@@ -118,10 +132,12 @@
                         <span>Email</span>
                         <strong id="profileEmail">—</strong>
                     </div>
+
                     <div>
                         <span>College</span>
                         <strong id="profileCollege">—</strong>
                     </div>
+
                     <div>
                         <span>Course</span>
                         <strong id="profileCourse">—</strong>
@@ -148,6 +164,7 @@
                             <th>Result</th>
                         </tr>
                     </thead>
+
                     <tbody id="activityList">
                         <tr>
                             <td colspan="4" class="loading-message">
@@ -158,7 +175,12 @@
                 </table>
             </div>
 
-            <p id="dashboardMessage" class="dashboard-message" role="status"></p>
+            <p
+                id="dashboardMessage"
+                class="dashboard-message"
+                role="status"
+                aria-live="polite"
+            ></p>
         </section>
 
         <footer class="footer">
@@ -166,8 +188,9 @@
         </footer>
     </main>
 
-    <script src="js/dashboard.js"></script>
+    <script src="./dashboard.js" defer></script>
 </body>
 </html>
+
 
 
