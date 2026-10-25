@@ -11,33 +11,35 @@
     content="Explore technology roadmaps, learn step by step, practice topics, and track your learning progress with SkillBridge."
   >
 
-  <link rel="stylesheet" href="css/roadmap.css">
-  <script src="js/roadmap.js" defer></script>
+  <!-- Stylesheets: files in the repository root -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./roadmap.css">
+
+  <!-- Roadmap functionality -->
+  <script src="./roadmap.js" defer></script>
 </head>
 
 <body>
-  <!-- Navigation -->
   <header class="site-header">
     <div class="nav-container">
-      <a class="brand" href="index.html" aria-label="SkillBridge home">
+      <a class="brand" href="./index.html" aria-label="SkillBridge home">
         <span class="brand-icon">S</span>
         <span>Skill<span class="brand-accent">Bridge</span></span>
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="content.html">Learning Content</a>
-        <a href="roadmap.html" class="active" aria-current="page">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./content.html">Learning Content</a>
+        <a href="./roadmap.html" class="active" aria-current="page">
           Roadmaps
         </a>
       </nav>
 
-      <a class="nav-cta" href="dashboard.html">My Learning ↗</a>
+      <a class="nav-cta" href="./dashboard.html">My Learning ↗</a>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero">
       <div class="hero-glow hero-glow-one"></div>
       <div class="hero-glow hero-glow-two"></div>
@@ -136,7 +138,6 @@
       </div>
     </section>
 
-    <!-- Roadmap Explorer -->
     <section class="explore-section section-container" id="explore">
       <div class="section-heading">
         <div>
@@ -154,7 +155,6 @@
         </div>
       </div>
 
-      <!-- Search -->
       <div class="search-panel">
         <div class="search-field">
           <span class="search-icon" aria-hidden="true">⌕</span>
@@ -176,7 +176,6 @@
         </p>
       </div>
 
-      <!-- JavaScript renders the technology cards here -->
       <div
         class="technology-grid"
         id="technologyGrid"
@@ -190,7 +189,6 @@
       </div>
     </section>
 
-    <!-- Selected Roadmap -->
     <section
       class="roadmap-section section-container"
       id="roadmapSection"
@@ -208,7 +206,6 @@
         </a>
       </div>
 
-      <!-- Progress -->
       <div class="progress-card">
         <div class="progress-top">
           <div>
@@ -221,6 +218,7 @@
 
         <div
           class="progress-track"
+          id="progressTrack"
           role="progressbar"
           aria-label="Roadmap completion"
           aria-valuemin="0"
@@ -252,11 +250,9 @@
         </p>
       </div>
 
-      <!-- JavaScript renders roadmap stages and topics here -->
       <div class="roadmap-stages" id="roadmapStages"></div>
     </section>
 
-    <!-- Closing section -->
     <section class="closing-section">
       <div class="closing-content">
         <span class="closing-icon">✦</span>
@@ -272,10 +268,9 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <a class="brand footer-brand" href="index.html">
+      <a class="brand footer-brand" href="./index.html">
         <span class="brand-icon">S</span>
         <span>Skill<span class="brand-accent">Bridge</span></span>
       </a>
