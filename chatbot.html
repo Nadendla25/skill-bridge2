@@ -4,34 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Ask SkillBridge AI for help with Python, SQL, AI, machine learning, and programming concepts."
+    >
+
     <title>SkillBridge AI Assistant</title>
-    <link rel="stylesheet" href="./css/chatbot.css">
-    
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./chatbot.css">
 </head>
 <body>
 
     <main class="chat-container">
 
         <header class="chat-header">
-            <a href="index.html" class="back-link">← Back</a>
+            <a href="./index.html" class="back-link">← Back</a>
 
             <div class="assistant-info">
-                <div class="ai-avatar">AI</div>
+                <div class="ai-avatar" aria-hidden="true">AI</div>
+
                 <div>
                     <h1>SkillBridge AI</h1>
-                    <p class="status"><span></span> Your learning assistant</p>
+                    <p class="status">
+                        <span></span> Your learning assistant
+                    </p>
                 </div>
             </div>
         </header>
 
-        <section id="messages" class="messages" aria-live="polite">
+        <section
+            id="messages"
+            class="messages"
+            aria-label="Chat messages"
+            aria-live="polite"
+            aria-relevant="additions"
+        >
             <div class="message ai-message">
                 Hi! 👋 Welcome to SkillBridge.
                 Ask me anything about Python, SQL, AI/ML or programming.
             </div>
         </section>
 
-        <div id="typing" class="typing hidden">
+        <div id="typing" class="typing hidden" role="status" aria-live="polite">
             AI is thinking...
         </div>
 
@@ -39,10 +55,13 @@
             <input
                 type="text"
                 id="question"
+                name="question"
                 placeholder="Ask your learning question..."
                 autocomplete="off"
+                aria-label="Your learning question"
                 required
             >
+
             <button type="submit" id="sendBtn">Send ↑</button>
         </form>
 
@@ -51,6 +70,8 @@
         </p>
 
     </main>
-   <script src="./js/chatbot.js"></script>
+
+    <script src="./chatbot.js" defer></script>
 </body>
 </html>
+
