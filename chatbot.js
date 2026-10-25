@@ -1,5 +1,5 @@
 
-const API_URL = "http://127.0.0.1:5001/api/ai/chat";
+const API_URL = "https://YOUR-AI-SERVICE.onrender.com/api/ai/chat";
 
 const chatForm = document.getElementById("chatForm");
 const questionInput = document.getElementById("question");
@@ -31,9 +31,7 @@ chatForm.addEventListener("submit", async function (event) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                message: message
-            })
+            body: JSON.stringify({ message })
         });
 
         const data = await response.json();
@@ -72,3 +70,4 @@ function addMessage(text, className) {
     messages.appendChild(messageElement);
     messages.scrollTop = messages.scrollHeight;
 }
+
