@@ -1,0 +1,378 @@
+
+/* =========================================
+   SKILLBRIDGE — LEARNING CONTENT
+   Clean, modern and responsive design
+========================================= */
+
+:root {
+    --content-primary: #5b5ce2;
+    --content-primary-dark: #4647c8;
+    --content-heading: #171a35;
+    --content-text: #626982;
+    --content-border: #e7e9f2;
+    --content-surface: #ffffff;
+    --content-background: #f7f8fc;
+    --content-radius: 18px;
+    --content-shadow: 0 8px 28px rgba(34, 40, 90, 0.06);
+}
+
+/* Page background */
+
+body {
+    margin: 0;
+    background: var(--content-background);
+    color: var(--content-heading);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* Header */
+
+.content-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 6%;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--content-border);
+    backdrop-filter: blur(14px);
+}
+
+.content-header .logo {
+    color: var(--content-heading);
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.8px;
+}
+
+.content-header .logo span {
+    color: var(--content-primary);
+}
+
+.content-header nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.content-header nav a {
+    color: var(--content-text);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.content-header nav a:hover {
+    color: var(--content-primary);
+}
+
+/* Main container */
+
+.content-main {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+}
+
+/* Hero section */
+
+.content-hero {
+    position: relative;
+    overflow: hidden;
+    margin-top: 34px;
+    padding: 64px 24px 58px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(129, 140, 248, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(135deg, #ffffff 0%, #f0f1ff 100%);
+    border: 1px solid #e5e5ff;
+    border-radius: 26px;
+}
+
+.content-hero .eyebrow {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 8px 13px;
+    color: var(--content-primary);
+    background: #e9eaff;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.content-hero h1 {
+    max-width: 760px;
+    margin: 0 auto 16px;
+    color: var(--content-heading);
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+.content-hero > p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: var(--content-text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Search field */
+
+#technology-search {
+    display: block;
+    width: min(520px, 100%);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 16px 20px;
+    color: var(--content-heading);
+    background: #ffffff;
+    border: 1px solid #dedff0;
+    border-radius: 14px;
+    outline: none;
+    font: inherit;
+    font-size: 14px;
+    box-shadow: 0 5px 18px rgba(34, 40, 90, 0.04);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#technology-search::placeholder {
+    color: #9298ad;
+}
+
+#technology-search:focus {
+    border-color: var(--content-primary);
+    box-shadow: 0 0 0 4px rgba(91, 92, 226, 0.12);
+}
+
+/* Technology section */
+
+.technology-section {
+    padding: 54px 0 70px;
+}
+
+.technology-section > h2 {
+    margin: 0 0 10px;
+    color: var(--content-heading);
+    font-size: clamp(25px, 3vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.technology-section > p {
+    margin: 0;
+    color: var(--content-text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Cards grid */
+
+.technology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+/* Individual technology card */
+
+.technology-card {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 205px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+    overflow: hidden;
+    color: var(--content-heading);
+    text-align: left;
+    background: var(--content-surface);
+    border: 1px solid var(--content-border);
+    border-radius: var(--content-radius);
+    box-shadow: 0 3px 12px rgba(34, 40, 90, 0.025);
+    cursor: pointer;
+    font-family: inherit;
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.technology-card::after {
+    position: absolute;
+    right: -35px;
+    bottom: -45px;
+    width: 110px;
+    height: 110px;
+    content: "";
+    background: #f0f0ff;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: transform 0.25s ease;
+    pointer-events: none;
+}
+
+.technology-card:hover {
+    transform: translateY(-5px);
+    border-color: #c9caff;
+    box-shadow: 0 14px 32px rgba(62, 64, 160, 0.10);
+}
+
+.technology-card:hover::after {
+    transform: scale(1.35);
+}
+
+.technology-card:focus-visible {
+    outline: 3px solid rgba(91, 92, 226, 0.45);
+    outline-offset: 3px;
+}
+
+.technology-card > span {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    background: #f0f0ff;
+    border: 1px solid #e8e8ff;
+    border-radius: 15px;
+    font-size: 28px;
+}
+
+.technology-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 19px 0 8px;
+    color: var(--content-heading);
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.technology-card p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--content-text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.technology-card[hidden] {
+    display: none;
+}
+
+/* No search results */
+
+#no-results {
+    margin-top: 28px;
+    padding: 25px;
+    color: var(--content-text);
+    text-align: center;
+    background: #ffffff;
+    border: 1px dashed #d6d8e8;
+    border-radius: 14px;
+}
+
+/* Footer */
+
+.dashboard-footer {
+    padding: 24px 5%;
+    color: var(--content-text);
+    text-align: center;
+    border-top: 1px solid var(--content-border);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .technology-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .content-main {
+        width: 92%;
+    }
+
+    .content-hero {
+        padding: 52px 22px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 560px) {
+    .content-header {
+        padding: 16px 5%;
+    }
+
+    .content-header .logo {
+        font-size: 22px;
+    }
+
+    .content-header nav {
+        gap: 14px;
+    }
+
+    .content-header nav a {
+        font-size: 12px;
+    }
+
+    .content-hero {
+        margin-top: 20px;
+        padding: 42px 18px;
+        border-radius: 20px;
+    }
+
+    .content-hero h1 {
+        letter-spacing: -0.8px;
+    }
+
+    .content-hero > p:not(.eyebrow) {
+        font-size: 14px;
+    }
+
+    .technology-section {
+        padding: 40px 0 48px;
+    }
+
+    .technology-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 22px;
+    }
+
+    .technology-card {
+        min-height: 170px;
+        padding: 21px;
+    }
+}
+
+/* Respect reduced motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+

@@ -1,0 +1,329 @@
+
+/* ==========================================
+   SKILLBRIDGE — NOTES PAGE
+   Premium Dark Theme | Purple + Cyan
+========================================== */
+
+:root {
+    --notes-bg: #080b18;
+    --notes-card: rgba(255, 255, 255, 0.045);
+    --notes-border: rgba(167, 139, 250, 0.22);
+    --notes-purple: #a78bfa;
+    --notes-cyan: #67e8f9;
+    --notes-text: #f1f5f9;
+    --notes-muted: #a5b0c5;
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(
+            circle at 10% 5%,
+            rgba(124, 58, 237, 0.17),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 90% 45%,
+            rgba(6, 182, 212, 0.09),
+            transparent 32%
+        ),
+        var(--notes-bg);
+    color: var(--notes-text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* Navbar */
+.content-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px clamp(20px, 6vw, 80px);
+    background: rgba(8, 11, 24, 0.86);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+}
+
+.content-header .logo {
+    color: var(--notes-text);
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    text-decoration: none;
+}
+
+.content-header .logo span {
+    color: var(--notes-cyan);
+}
+
+.content-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.content-header nav a {
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: var(--notes-muted);
+    font-size: 0.94rem;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.content-header nav a:hover {
+    color: #fff;
+    background: rgba(167, 139, 250, 0.12);
+    border-color: var(--notes-border);
+}
+
+/* Main */
+.notes-main {
+    flex: 1;
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 55px 0 75px;
+}
+
+/* Hero */
+.notes-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(35px, 6vw, 65px) 24px;
+    margin-bottom: 42px;
+    text-align: center;
+    border: 1px solid var(--notes-border);
+    border-radius: 28px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.16),
+            rgba(6, 182, 212, 0.07)
+        ),
+        rgba(255, 255, 255, 0.025);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.notes-hero::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    top: -145px;
+    right: -60px;
+    border-radius: 50%;
+    background: rgba(103, 232, 249, 0.12);
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+.notes-hero .eyebrow {
+    position: relative;
+    margin: 0 0 18px;
+    color: var(--notes-cyan);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.notes-hero h1 {
+    position: relative;
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    overflow-wrap: anywhere;
+    background: linear-gradient(
+        90deg,
+        #c4b5fd,
+        #67e8f9
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.notes-hero > p:last-child {
+    position: relative;
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--notes-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Resources section */
+.notes-section h2 {
+    margin: 0 0 24px;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    letter-spacing: -0.5px;
+}
+
+/* Learning resource card */
+#notes-list {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 300px), 1fr)
+    );
+    gap: 22px;
+}
+
+.note-item {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border: 1px solid var(--notes-border);
+    border-radius: 22px;
+    background: var(--notes-card);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.note-item::before {
+    content: "LEARNING RESOURCE";
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 7px 11px;
+    border: 1px solid rgba(103, 232, 249, 0.2);
+    border-radius: 8px;
+    background: rgba(6, 182, 212, 0.08);
+    color: var(--notes-cyan);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.note-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(103, 232, 249, 0.42);
+    background: rgba(255, 255, 255, 0.065);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+}
+
+.note-item h3 {
+    margin: 0 0 14px;
+    color: #d8ccff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.note-item p {
+    margin: 0 0 24px;
+    color: var(--notes-muted);
+    font-size: 0.95rem;
+    line-height: 1.85;
+}
+
+/* Open MIT button */
+.note-item .back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 100%;
+    padding: 13px 19px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: linear-gradient(
+        110deg,
+        #8b5cf6,
+        #0891b2
+    );
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.note-item .back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 25px rgba(139, 92, 246, 0.3);
+}
+
+/* Keyboard accessibility */
+.content-header a:focus-visible,
+.note-item .back-button:focus-visible {
+    outline: 2px solid var(--notes-cyan);
+    outline-offset: 4px;
+}
+
+/* Footer */
+.dashboard-footer {
+    margin-top: auto;
+    padding: 24px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--notes-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .content-header {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 5%;
+    }
+
+    .content-header nav {
+        gap: 5px;
+    }
+
+    .content-header nav a {
+        padding: 9px 11px;
+    }
+
+    .notes-main {
+        width: 92%;
+        padding: 30px 0 50px;
+    }
+
+    .notes-hero {
+        padding: 38px 18px;
+        margin-bottom: 30px;
+        border-radius: 22px;
+    }
+
+    .note-item {
+        padding: 23px;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

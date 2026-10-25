@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SkillBridge | Learning Roadmaps</title>
+  <meta
+    name="description"
+    content="Explore technology roadmaps, learn step by step, practice topics, and track your learning progress with SkillBridge."
+  >
+
+  <link rel="stylesheet" href="css/roadmap.css">
+  <script src="js/roadmap.js" defer></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="brand" href="index.html" aria-label="SkillBridge home">
+        <span class="brand-icon">S</span>
+        <span>Skill<span class="brand-accent">Bridge</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="content.html">Learning Content</a>
+        <a href="roadmap.html" class="active" aria-current="page">
+          Roadmaps
+        </a>
+      </nav>
+
+      <a class="nav-cta" href="dashboard.html">My Learning ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="hero-content">
+        <span class="eyebrow hero-eyebrow">
+          <span class="status-dot"></span>
+          YOUR LEARNING JOURNEY
+        </span>
+
+        <h1>
+          Learn with direction.<br>
+          <span>Grow with purpose.</span>
+        </h1>
+
+        <p class="hero-description">
+          Stop wondering what to learn next. Choose a technology,
+          follow a structured roadmap, practice every topic, and
+          move closer to your career goals.
+        </p>
+
+        <a class="hero-button" href="#explore">
+          Explore Roadmaps <span aria-hidden="true">↓</span>
+        </a>
+
+        <div class="hero-highlights">
+          <div class="highlight">
+            <span class="highlight-icon">01</span>
+            <span>Learn step by step</span>
+          </div>
+
+          <div class="highlight">
+            <span class="highlight-icon">02</span>
+            <span>Practice every topic</span>
+          </div>
+
+          <div class="highlight">
+            <span class="highlight-icon">03</span>
+            <span>Track your progress</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="visual-card visual-card-main">
+          <div class="visual-card-top">
+            <span class="visual-symbol">⌘</span>
+            <span class="visual-label">YOUR NEXT STEP</span>
+            <span class="live-dot"></span>
+          </div>
+
+          <h3>From learning to doing.</h3>
+          <p>Small steps. Real skills. Better opportunities.</p>
+
+          <div class="mini-roadmap">
+            <div class="mini-step completed-step">
+              <span>✓</span>
+              <div>
+                <strong>Learn the basics</strong>
+                <small>Build your foundation</small>
+              </div>
+            </div>
+
+            <div class="mini-connector"></div>
+
+            <div class="mini-step current-step">
+              <span>02</span>
+              <div>
+                <strong>Practice concepts</strong>
+                <small>Turn knowledge into skills</small>
+              </div>
+            </div>
+
+            <div class="mini-connector"></div>
+
+            <div class="mini-step">
+              <span>03</span>
+              <div>
+                <strong>Build projects</strong>
+                <small>Show what you can do</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-tag floating-tag-top">
+          <span>✦</span> Learn consistently
+        </div>
+
+        <div class="floating-tag floating-tag-bottom">
+          <span>↗</span> Track your growth
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap Explorer -->
+    <section class="explore-section section-container" id="explore">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">EXPLORE & DISCOVER</span>
+          <h2>Choose your learning path</h2>
+          <p>
+            Find your technology and follow a clear path from
+            fundamentals to practical projects.
+          </p>
+        </div>
+
+        <div class="technology-counter">
+          <span class="counter-dot"></span>
+          <span id="technologyCount">18 technologies</span>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-panel">
+        <div class="search-field">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search Python, AI, Data Science..."
+            aria-label="Search technology roadmaps"
+            autocomplete="off"
+          >
+
+          <span class="search-shortcut" aria-hidden="true">SEARCH</span>
+        </div>
+
+        <p class="search-hint">
+          <span>✦</span>
+          Explore programming, AI, data, cloud, and business skills.
+        </p>
+      </div>
+
+      <!-- JavaScript renders the technology cards here -->
+      <div
+        class="technology-grid"
+        id="technologyGrid"
+        aria-label="Available technology roadmaps"
+      ></div>
+
+      <div class="empty-state" id="emptyMessage" hidden>
+        <div class="empty-icon">⌕</div>
+        <h3>No roadmaps found</h3>
+        <p>Try another technology name or category.</p>
+      </div>
+    </section>
+
+    <!-- Selected Roadmap -->
+    <section
+      class="roadmap-section section-container"
+      id="roadmapSection"
+      hidden
+    >
+      <div class="roadmap-header">
+        <div class="roadmap-heading">
+          <span class="eyebrow">YOUR LEARNING PATH</span>
+          <h2 id="roadmapTitle">Technology Roadmap</h2>
+          <p id="roadmapDescription"></p>
+        </div>
+
+        <a class="back-link" href="#explore">
+          ↑ Explore technologies
+        </a>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-card">
+        <div class="progress-top">
+          <div>
+            <span class="progress-label">YOUR PROGRESS</span>
+            <h3 id="progressText">0% complete</h3>
+          </div>
+
+          <div class="progress-badge" aria-hidden="true">↗</div>
+        </div>
+
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="Roadmap completion"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <div id="progressBar"></div>
+        </div>
+
+        <div class="progress-bottom">
+          <p id="progressDetails">0 topics completed</p>
+
+          <button
+            class="reset-button"
+            id="resetProgress"
+            type="button"
+          >
+            Reset progress
+          </button>
+        </div>
+      </div>
+
+      <div class="roadmap-instructions">
+        <span class="instructions-icon">✓</span>
+        <p>
+          <strong>How to use this roadmap:</strong>
+          Learn the topic, read the notes, practice what you learned,
+          and tick the checkbox when you finish.
+        </p>
+      </div>
+
+      <!-- JavaScript renders roadmap stages and topics here -->
+      <div class="roadmap-stages" id="roadmapStages"></div>
+    </section>
+
+    <!-- Closing section -->
+    <section class="closing-section">
+      <div class="closing-content">
+        <span class="closing-icon">✦</span>
+        <h2>Every expert starts somewhere.</h2>
+        <p>
+          Choose one path, keep learning, and turn your knowledge
+          into skills that matter.
+        </p>
+        <a href="#explore" class="closing-button">
+          Start your journey ↑
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand footer-brand" href="index.html">
+        <span class="brand-icon">S</span>
+        <span>Skill<span class="brand-accent">Bridge</span></span>
+      </a>
+
+      <p>
+        Bridging the gap between learning and job readiness.
+      </p>
+
+      <span class="footer-note">Learn. Practice. Build.</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | SkillBridge</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="content.html" class="brand">Skill<span>Bridge</span></a>
+
+        <p class="menu-label">LEARNING SPACE</p>
+
+        <nav class="menu">
+            <a href="dashboard.html" class="menu-link active">▦ &nbsp; Dashboard</a>
+            <a href="content.html" class="menu-link">📚 &nbsp; Learn</a>
+            <a href="practice.html" class="menu-link">💻 &nbsp; Practice</a>
+            <a href="interview.html" class="menu-link">🎯 &nbsp; Practice & Improve</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-note">
+                <span>🚀</span>
+                <strong>Keep learning!</strong>
+                <p>Small steps lead to big results.</p>
+            </div>
+            <button id="logoutButton" class="logout-button">↪ &nbsp; Logout</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">Learning Space / Dashboard</p>
+                <h1>My Dashboard</h1>
+            </div>
+
+            <div class="profile-mini">
+                <div class="avatar" id="headerAvatar">S</div>
+                <div>
+                    <strong id="headerName">Student</strong>
+                    <p>Student Account</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="welcome-banner">
+            <div>
+                <span class="eyebrow">YOUR LEARNING JOURNEY</span>
+                <h2>Welcome back, <span id="welcomeName">Student</span>! 👋</h2>
+                <p>Track your progress, review your quiz results, and keep building your skills.</p>
+            </div>
+            <a href="content.html" class="primary-button">Continue Learning →</a>
+        </section>
+
+        <section class="stats-grid" aria-label="Learning statistics">
+            <article class="stat-card">
+                <div class="stat-icon purple">📚</div>
+                <p>Topics Studied</p>
+                <h2 id="topicsStudied">—</h2>
+                <span>Topics explored</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon blue">📝</div>
+                <p>Quizzes Completed</p>
+                <h2 id="quizzesCompleted">—</h2>
+                <span>Completed attempts</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon green">🏆</div>
+                <p>Average Quiz Score</p>
+                <h2 id="averageScore">—</h2>
+                <span>Across completed quizzes</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon orange">⏱️</div>
+                <p>Practice Sessions</p>
+                <h2 id="practiceSessions">—</h2>
+                <span>Recorded sessions</span>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>My Learning Progress</h2>
+                        <p>Your progress by technology</p>
+                    </div>
+                </div>
+
+                <div id="progressList" class="progress-list">
+                    <p class="loading-message">Loading your learning progress...</p>
+                </div>
+            </article>
+
+            <article class="panel profile-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>My Profile</h2>
+                        <p>Your account details</p>
+                    </div>
+                </div>
+
+                <div class="profile-avatar" id="profileAvatar">S</div>
+
+                <h3 id="profileName">Loading profile...</h3>
+                <p class="profile-role">SkillBridge Student</p>
+
+                <div class="profile-details">
+                    <div>
+                        <span>Email</span>
+                        <strong id="profileEmail">—</strong>
+                    </div>
+                    <div>
+                        <span>College</span>
+                        <strong id="profileCollege">—</strong>
+                    </div>
+                    <div>
+                        <span>Course</span>
+                        <strong id="profileCourse">—</strong>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="panel activity-panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Recent Learning Activity</h2>
+                    <p>Your latest study and quiz activity</p>
+                </div>
+            </div>
+
+            <div class="activity-table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Technology</th>
+                            <th>Date</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityList">
+                        <tr>
+                            <td colspan="4" class="loading-message">
+                                Loading your recent activity...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="dashboardMessage" class="dashboard-message" role="status"></p>
+        </section>
+
+        <footer class="footer">
+            SkillBridge — Learn with purpose. Practice with confidence.
+        </footer>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
+

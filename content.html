@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Content | SkillBridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/content.css">
+    <script src="js/content.js" defer></script>
+</head>
+<body>
+    <header class="content-header">
+        <a href="index.html" class="logo">Skill<span>Bridge</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+    </header>
+
+    <main class="content-main">
+        <section class="content-hero">
+            <p class="eyebrow">YOUR LEARNING SPACE</p>
+            <h1>Learn Skills. Build Your Future.</h1>
+            <p>
+                Choose a technology, learn from structured notes,
+                and practise each topic to become job-ready.
+            </p>
+
+            <input
+                type="search"
+                id="technology-search"
+                placeholder="Search Python, AI, Data Science..."
+                aria-label="Search technologies"
+            >
+        </section>
+
+        <section class="technology-section">
+            <h2>Explore Technologies</h2>
+            <p>Select a category to start learning.</p>
+
+            <div class="technology-grid" id="technology-grid">
+
+                <button class="technology-card" data-tech="Python"><span>🐍</span><h3>Python</h3><p>Programming fundamentals and coding.</p></button>
+                <button class="technology-card" data-tech="C"><span>💻</span><h3>C</h3><p>Logic, memory and fundamentals.</p></button>
+                <button class="technology-card" data-tech="C++"><span>⚙️</span><h3>C++</h3><p>OOP, STL and problem solving.</p></button>
+                <button class="technology-card" data-tech="Java"><span>☕</span><h3>Java</h3><p>Core Java and object-oriented programming.</p></button>
+                <button class="technology-card" data-tech="R"><span>📊</span><h3>R</h3><p>Statistical computing and analysis.</p></button>
+                <button class="technology-card" data-tech="PHP"><span>🌐</span><h3>PHP</h3><p>Server-side web development.</p></button>
+
+                <button class="technology-card" data-tech="HTML"><span>🧱</span><h3>HTML</h3><p>Structure of web pages.</p></button>
+                <button class="technology-card" data-tech="CSS"><span>🎨</span><h3>CSS</h3><p>Web styling and responsive design.</p></button>
+                <button class="technology-card" data-tech="JavaScript"><span>✨</span><h3>JavaScript</h3><p>Interactive web development.</p></button>
+
+                <button class="technology-card" data-tech="Data Analysis"><span>📈</span><h3>Data Analysis</h3><p>Explore, clean and analyse data.</p></button>
+                <button class="technology-card" data-tech="Data Science"><span>🔬</span><h3>Data Science</h3><p>Statistics, data and modelling.</p></button>
+                <button class="technology-card" data-tech="Business Analyst"><span>📋</span><h3>Business Analyst</h3><p>Requirements, processes and insights.</p></button>
+
+                <button class="technology-card" data-tech="AI"><span>🤖</span><h3>Artificial Intelligence</h3><p>AI concepts and applications.</p></button>
+                <button class="technology-card" data-tech="ML"><span>🧠</span><h3>Machine Learning</h3><p>Models, training and evaluation.</p></button>
+                <button class="technology-card" data-tech="DL"><span>🕸️</span><h3>Deep Learning</h3><p>Neural networks and deep models.</p></button>
+                <button class="technology-card" data-tech="Gen AI"><span>💡</span><h3>Generative AI</h3><p>LLMs, prompting and RAG basics.</p></button>
+
+                <button class="technology-card" data-tech="AWS"><span>☁️</span><h3>AWS</h3><p>Amazon cloud services fundamentals.</p></button>
+                <button class="technology-card" data-tech="Azure"><span>🌩️</span><h3>Azure</h3><p>Microsoft cloud services fundamentals.</p></button>
+
+            </div>
+
+            <p id="no-results" hidden>No matching technologies found.</p>
+        </section>
+    </main>
+
+    <footer class="dashboard-footer">
+        SkillBridge — Learn with purpose. Build with confidence.
+    </footer>
+</body>
+</html>
