@@ -4,40 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Notes | SkillBridge</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/notes.css">
-    <script src="js/notes.js" defer></script>
+    <title>Login | SkillBridge</title>
+    <meta name="description" content="Log in to SkillBridge and continue your learning journey.">
+
+    <!-- Website and authentication styles -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./auth.css">
 </head>
-<body>
-    <header class="content-header">
-        <a href="index.html" class="logo">Skill<span>Bridge</span></a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="content.html">Content</a>
-            <a href="dashboard.html">Dashboard</a>
-        </nav>
+
+<body class="auth-page">
+
+    <!-- Navigation -->
+    <header class="auth-nav">
+        <a href="./index.html" class="logo">
+            Skill<span>Bridge</span>
+        </a>
+
+        <a href="./index.html" class="back-link">
+            &larr; Back to home
+        </a>
     </header>
 
-    <main class="notes-main">
-        <section class="notes-hero">
-            <p class="eyebrow">SKILLBRIDGE LEARNING SPACE</p>
-            <h1 id="technology-title">Learning Notes</h1>
-            <p>
-                Explore learning materials and course resources
-                for your selected technology.
-            </p>
-        </section>
+    <!-- Login section -->
+    <main class="auth-container">
+        <section class="auth-card">
 
-        <section class="notes-section">
-            <h2>Available Learning Resources</h2>
-            <div id="notes-list"></div>
+            <div class="auth-icon" aria-hidden="true">&#10022;</div>
+
+            <p class="eyebrow">WELCOME BACK</p>
+
+            <h1>Login to SkillBridge</h1>
+
+            <p class="auth-description">
+                Continue your learning journey and build your future.
+            </p>
+
+            <form id="login-form">
+                <label for="login-email">Email address</label>
+
+                <input
+                    type="email"
+                    id="login-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="login-password">Password</label>
+
+                <input
+                    type="password"
+                    id="login-password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <div class="auth-options">
+                    <label class="remember-label" for="remember-me">
+                        <input
+                            type="checkbox"
+                            id="remember-me"
+                            name="remember"
+                        >
+                        Remember me
+                    </label>
+
+                    <a href="#" id="forgot-password">
+                        Forgot password?
+                    </a>
+                </div>
+
+                <p
+                    id="login-message"
+                    class="auth-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <button type="submit" class="auth-submit">
+                    Login &rarr;
+                </button>
+            </form>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a href="./register.html">Create account</a>
+            </p>
+
         </section>
     </main>
 
-    <footer class="dashboard-footer">
-        SkillBridge — Learn with purpose. Build with confidence.
-    </footer>
+    <!-- Login functionality -->
+    <script src="./auth.js" defer></script>
+
 </body>
 </html>
+
